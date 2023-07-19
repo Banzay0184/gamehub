@@ -1,0 +1,172 @@
+body {
+    font-family: Roboto, sans-serif;
+    background-color: black;
+}
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.footer {
+    height: 100px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(54, 53, 53, 0.5);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    color: #575858;
+    transition: fill 1s ease 0s;
+}
+
+
+.menu:active > svg {
+    fill: #cb5ad6;
+}
+
+.menu:active > h1 {
+    color: #cb5ad6;
+}
+
+
+.menu svg {
+    fill: #575858;
+    width: 50px;
+    height: 50px;
+}
+
+
+.text-home {
+    color: white;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+/*Card-info*/
+.cards-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.card-info {
+    position: relative;
+    width: 180px;
+    height: 300px;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.card-info-text {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.card-info-img {
+    width: 180px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card-info-top {
+    padding: 5px;
+    width: 100%;
+    top: 0;
+    position: absolute;
+    background-color: rgba(54, 53, 53, 0.5);
+    display: flex;
+    justify-content: end;
+}
+
+.card-info-top svg {
+    fill: #cb5ad6;
+    width: 25px;
+    height: 25px;
+}
+
+.card-info-bottom {
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px;
+    background-color: rgba(54, 53, 53, 0.5);
+}
+
+.card-info-bottom p {
+    font-size: 10px;
+}
+
+.card-info-bottom-r {
+    display: flex;
+    align-items: end;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.card-info-bottom-l {
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    gap: 5px;
+}
+
+/*Search*/
+.search {
+    display: flex;
+    margin-bottom: 12px;
+    justify-content: space-between;
+}
+
+.search button {
+    color: #cb5ad6;
+}
+
+.search-input {
+    width: 82%;
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 5px;
+    background-color: rgba(92, 88, 88, 0.5);
+    border-radius: 10px;
+}
+
+.search-input input {
+    width: 100%;
+}
+
+.search-input svg {
+    margin-right: 5px;
+    fill: #bbb8b8;
+    width: 20px;
+    height: 20px;
+}
+
+.search-text {
+    width: 200px;
+    color: white;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: 700;
+}
+
+
+
