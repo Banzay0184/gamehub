@@ -1,7 +1,7 @@
 // cardGameInfo
 
 class CardGame {
-    constructor(src, title, rating, count, parentSelector, video, ...classes) {
+    constructor(src, title, rating, count, parentSelector, video, id, ...classes) {
         this.src = src
         this.title = title
         this.rating = rating
@@ -9,6 +9,7 @@ class CardGame {
         this.video = video
         this.classes = classes
         this.parent = document.querySelector(parentSelector)
+        this.id = id
     }
 
     render() {
@@ -22,7 +23,7 @@ class CardGame {
         }
 
         element.innerHTML = `
-                <video autoplay class="video-game hide" controls>
+                <video autoplay class="video-game${this.id} hide" controls>
                     <source src=${this.video} type="video/mp4">
                 </video>
                 <img class="card-info-img" src=${this.src}  alt="">
@@ -62,6 +63,7 @@ new CardGame(
     '6,330',
     '.cards-info',
     'video/videoplayback.mp4',
+    1,
     'card-info',
 ).render()
 
@@ -72,27 +74,40 @@ new CardGame(
     '6,330',
     '.cards-info',
     'video/videoplayback.mp4',
+    2,
     'card-info',
 ).render()
 
-const videoTrigger = document.querySelectorAll('[data-video]'),
-    video = document.querySelector('.video-game')
+const cardGameParent = document.querySelector('.cards-info'),
+    cardGame = document.querySelectorAll('.card-info-img'),
+    cardGameContent = document.querySelectorAll('.box'),
+    cont = document.querySelector('.container'),
+    fut = document.querySelector('.footer')
 
-function openVideo() {
-    video.classList.remove('hide')
-    video.classList.add('show')
-    video.requestFullscreen()
-    document.body.style.overflow = 'hidden'
+
+function hideGameContent() {
+    cardGameContent.forEach(item => {
+        item.classList.add('hide',)
+        item.classList.remove('show',)
+    })
 }
 
-videoTrigger.forEach(item => {
-    item.addEventListener('click', openVideo)
-    // console.log(item)
-})
+function showGameContent(i = 0) {
+    cardGameContent[i].classList.add('show', 'fade')
+    cardGameContent[i].classList.remove('hide')
+    cardGame[i].classList.add('tabheader__item_active')
+}
 
-document.addEventListener('playing', (e) => {
-    // if (e.code === 'Escape' && modal.classList.contains('show')) {
-    //     closeModal()
-    // }
-    console.log(e)
+hideGameContent()
+
+cardGameParent.addEventListener('click', (e) => {
+    const target = e.target
+    cardGame.forEach((item, idx) => {
+        if (target === item) {
+            hideGameContent()
+            showGameContent(idx)
+            cont.classList.add('hide')
+            fut.classList.add('hide')
+        }
+    })
 })
