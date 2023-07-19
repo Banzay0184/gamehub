@@ -6,7 +6,7 @@ body {
 .container {
     width: 90%;
     margin: 0 auto;
-    padding-top: 100px;
+    padding-top: 20px;
 }
 
 .footer {
@@ -28,7 +28,7 @@ body {
     align-items: center;
     gap: 5px;
     color: #575858;
-    transition: fill 1s ease 0s;
+    font-size: 8px;
 }
 
 
@@ -71,10 +71,23 @@ body {
     margin-bottom: 40px;
 }
 
+
+@media screen and (max-width: 1400px) {
+    .card-info {
+        width: 31%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .card-info {
+        width: 48%;
+    }
+}
+
 @media screen and (max-width: 320px) {
-  .card-info {
-    width: 100%;
-  }
+    .card-info {
+        width: 100%;
+    }
 }
 
 .card-info-text {
