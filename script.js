@@ -1,3 +1,15 @@
+// Loader
+window.addEventListener('DOMContentLoaded', () => {
+    const loader = document.querySelector('.loader')
+
+    setTimeout(() => {
+        loader.style.opacity = '0'
+        setTimeout(() => {
+            loader.style.display = 'none'
+        }, 500)
+    }, 1000)
+})
+
 // cardGameInfo
 
 class CardGame {
@@ -162,7 +174,8 @@ const
     cardGame = document.querySelectorAll('.card-info-img'),
     cardGameContent = document.querySelectorAll('.box'),
     cont = document.querySelector('.container'),
-    foot = document.querySelector('.footer')
+    foot = document.querySelector('.footer'),
+    topGame = document.querySelector('.top-game')
 
 
 function hideGameContent() {
@@ -192,3 +205,24 @@ cardGameParent.addEventListener('click', (e) => {
         }
     })
 })
+// Search
+
+const search = document.querySelector('.search-top'),
+    searchBtn = document.querySelector('.search-btn'),
+    topGameBtn = document.querySelector('.top-game-btn')
+
+searchBtn.addEventListener('click', () => {
+    topGame.classList.add('hide')
+    searchBtn.classList.add('active')
+    topGameBtn.classList.remove('active')
+    search.classList.remove('hide')
+})
+
+topGameBtn.addEventListener('click', () => {
+    topGame.classList.remove('hide')
+    searchBtn.classList.remove('active')
+    topGameBtn.classList.add('active')
+    search.classList.add('hide')
+})
+
+
