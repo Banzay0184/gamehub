@@ -61,7 +61,7 @@ class CardGame {
                     <h1>${this.count}</h1>
                 </div>
             </div>
-            <h1 class="card-info-text">${this.title}</h1>
+            <h1 class="card-info-text"><h6>${this.title}</h6></h1>
                             `
         this.parent.append(element)
 
@@ -205,6 +205,7 @@ cardGameParent.addEventListener('click', (e) => {
         }
     })
 })
+
 // Search
 
 const search = document.querySelector('.search-top'),
@@ -224,5 +225,24 @@ topGameBtn.addEventListener('click', () => {
     topGameBtn.classList.add('active')
     search.classList.add('hide')
 })
+
+const searchInput = () => {
+    const searchBox = document.getElementById('serInput').value.toUpperCase();
+    const gameItems = document.getElementById('cards-info')
+    const gameItem = document.querySelectorAll('.card-info')
+    const iName = gameItems.getElementsByTagName('h1')
+
+    for (var i = 0; i < iName.length; i++) {
+        let match = gameItem[i].getElementsByTagName('h1')[0];
+        if (match) {
+            let textvalue = match.textContent || match.innerHTML
+            if (textvalue.toUpperCase().indexOf(searchBox) > -1) {
+                gameItem[i].style.display = "";
+            } else {
+                gameItem[i].style.display = "none";
+            }
+        }
+    }
+}
 
 

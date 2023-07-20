@@ -17,7 +17,7 @@
     </div>
     <div class="search-top hide">
         <h1 class="text-home">Search</h1>
-        <div class="search">
+        <form class="search">
             <div class="search-input">
                 <svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
                      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
@@ -55,13 +55,13 @@
                         </g>
                     </g>
                 </svg>
-                <input type="text">
+                <input id="serInput" type="text" onkeyup="searchInput()">
             </div>
-            <button>Cancel</button>
-        </div>
+            <button type="reset" class="cancel">Cancel</button>
+        </form>
         <h1 class="search-text">Search results for "Tom clim"</h1>
     </div>
-    <div class="cards-info">
+    <div class="cards-info" id="cards-info">
     </div>
 </div>
 
