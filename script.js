@@ -1,7 +1,7 @@
 // cardGameInfo
 
 class CardGame {
-    constructor(src, title, rating, count, parentSelector, video, id, ...classes) {
+    constructor(src, title, rating, count, parentSelector, video, ...classes) {
         this.src = src
         this.title = title
         this.rating = rating
@@ -9,7 +9,6 @@ class CardGame {
         this.video = video
         this.classes = classes
         this.parent = document.querySelector(parentSelector)
-        this.id = id
     }
 
     render() {
@@ -23,7 +22,7 @@ class CardGame {
         }
 
         element.innerHTML = `
-                <video autoplay class="video-game${this.id} hide" controls>
+                <video class="video-game hide" controls>
                     <source src=${this.video} type="video/mp4">
                 </video>
                 <img class="card-info-img" src=${this.src}  alt="">
@@ -50,55 +49,136 @@ class CardGame {
                     <h1>${this.count}</h1>
                 </div>
             </div>
-            <h1 class="card-info-text">${this.title}V</h1>
+            <h1 class="card-info-text">${this.title}</h1>
                             `
         this.parent.append(element)
+
+        class CardGameInfo {
+            constructor(title, src, date, genres, desc, parentSelector, ...classes) {
+                this.title = title
+                this.src = src
+                this.date = date
+                this.genres = genres
+                this.desc = desc
+                this.parent = document.querySelector(parentSelector)
+                this.classes = classes
+            }
+
+            render() {
+                const box = document.createElement('div')
+
+                if (this.classes.length === 0) {
+                    this.box = 'box'
+                    box.classList.add(this.box)
+                } else {
+                    this.classes.forEach(classname => box.classList.add(classname))
+                    box.classList.add('hide')
+                }
+
+
+                box.innerHTML = `
+                    <a href="index.html" class="back-btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="24" viewBox="0 0 14 24" fill="none">
+                          <path d="M0.939412 10.9392C0.353586 11.5249 0.353521 12.4747 0.939268 13.0605L10.4846 22.6071C11.0703 23.1929 12.0201 23.193 12.6059 22.6073C13.1917 22.0215 13.1918 21.0718 12.606 20.4859L4.12132 12.0001L12.6072 3.51537C13.193 2.92962 13.1931 1.97988 12.6073 1.39405C12.0216 0.808223 11.0718 0.808159 10.486 1.39391L0.939412 10.9392ZM3.0001 10.5L2.0001 10.4999L1.9999 13.4999L2.9999 13.5L3.0001 10.5Z" fill="#CB5AD6"/>
+                        </svg>
+                        <h1 class="back-btn1">Top games</h1>
+                    </a>
+                    <div class="box-text">
+                        <h1>${this.title}</h1>
+                        <div class="">
+                            <h2>Orginal name:</h2>
+                            <p>${this.title}</p>
+                        </div>
+                    </div>
+                    <img src=${this.src} alt="">
+                    <div class="box-info">
+                        <h1>INFO</h1>
+                        <p>Release Date: <span>${this.date}</span></p>
+                        <p>Generes: <span>${this.genres}</span></p>
+                    </div>
+                    <div class="box-info">
+                        <h1>Description</h1>
+                        <p><span>${this.desc}</span></p>
+                    </div>
+                    `
+                this.parent.append(box)
+            }
+        }
+
+        new
+
+        CardGameInfo(
+            'Grand Theft Auto V',
+            'img/gta_v.webp',
+            '2013-09-17',
+            'Action, Adventure',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem dolorum exercitationem fugiat ipsam minima odit perspiciatis! Accusantium aspernatur atque commodi culpa deserunt enim facere illum incidunt inventore ipsa iure nam natus non nostrum nulla odio perspiciatis quos reiciendis, sed suscipit tempore velit vero voluptatem.',
+            'body',
+            'box'
+        ).render()
+
+        new
+
+        CardGameInfo(
+            'The Witcher 3 Wild Hunt',
+            'img/thewicher.jpeg',
+            '2015-05-18',
+            'Action, Role-Playing',
+            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt dolorem dolorum exercitationem fugiat ipsam minima odit perspiciatis! Accusantium aspernatur atque commodi culpa deserunt enim facere illum incidunt inventore ipsa iure nam natus non nostrum nulla odio perspiciatis quos reiciendis, sed suscipit tempore velit vero voluptatem.',
+            'body',
+            'box'
+        ).render()
+
     }
 }
 
-new CardGame(
+
+new
+
+CardGame(
     'img/gta_v.webp',
     'Grand Theft Auto V',
     '4.47/5.0',
     '6,330',
     '.cards-info',
     'video/videoplayback.mp4',
-    1,
     'card-info',
 ).render()
 
-new CardGame(
-    'img/gta_v.webp',
-    'Grand Theft Auto V',
-    '4.47/5.0',
-    '6,330',
+new
+
+CardGame(
+    'img/thewicher.jpeg',
+    'The Witcher 3 Wild Hunt',
+    '4.66/5.0',
+    '6,025',
     '.cards-info',
     'video/videoplayback.mp4',
-    2,
     'card-info',
 ).render()
 
-const cardGameParent = document.querySelector('.cards-info'),
+const
+    cardGameParent = document.querySelector('.cards-info'),
     cardGame = document.querySelectorAll('.card-info-img'),
     cardGameContent = document.querySelectorAll('.box'),
     cont = document.querySelector('.container'),
-    fut = document.querySelector('.footer')
+    foot = document.querySelector('.footer')
 
 
 function hideGameContent() {
     cardGameContent.forEach(item => {
         item.classList.add('hide',)
         item.classList.remove('show',)
+
+
     })
 }
 
 function showGameContent(i = 0) {
-    cardGameContent[i].classList.add('show', 'fade')
+    cardGameContent[i].classList.add('show',)
     cardGameContent[i].classList.remove('hide')
     cardGame[i].classList.add('tabheader__item_active')
 }
-
-hideGameContent()
 
 cardGameParent.addEventListener('click', (e) => {
     const target = e.target
@@ -106,8 +186,9 @@ cardGameParent.addEventListener('click', (e) => {
         if (target === item) {
             hideGameContent()
             showGameContent(idx)
+
             cont.classList.add('hide')
-            fut.classList.add('hide')
+            foot.classList.add('hide')
         }
     })
 })
